@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_sigin"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:text="LOG IN"
+        android:paddingBottom="15dp"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:paddingTop="15dp"
+        android:textSize="25dp" />
+
+
+    <EditText
+        android:id="@+id/edtEmaill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint=" Enter Email-id."
+        android:inputType="textEmailAddress"
+        android:textSize="20sp" />
+
+    <EditText
+
+        android:id="@+id/edtPassl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint=" Enter Password."
+        android:inputType="textPassword"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtPassl"
+        android:background="@drawable/border"
+        android:text="Submit"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:textSize="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:onClick="HomeScreen"
+        android:textColor="#ffffff" />
+
+<!--
+
+    <Button
+
+        android:id="@+id/forgetpass"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="30dp"
+        android:background="#ffffff"
+        android:layout_marginBottom="20dp"
+        android:text="|&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;forget password ? &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;|"
+        android:onClick="Toast"
+        android:textColor="#000000" />
+-->
+
+<!--    <Button
+        android:id="@+id/btnsignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtPassl"
+        android:background="@drawable/border"
+        android:text="signup"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:textSize="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:textColor="#ffffff" />-->
+
+    <TextView
+        android:id="@+id/new_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New User? Signup "
+        android:textSize="22dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"/>
+
+
+    <TextView
+        android:id="@+id/Info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No of attempt remaining?"
+        android:textSize="22dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"/>
+
+</LinearLayout>

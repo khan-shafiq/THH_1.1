@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_register">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:text="Registration Form"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:textSize="25dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edtFullName"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="50dp"
+            android:text="*Full Name :"
+            android:textColor="#000"
+            android:textSize="22dp" />
+
+        <EditText
+            android:id="@+id/edtFullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:ems="10"
+            android:hint=" Enter Full Name"
+            android:inputType="textPersonName"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edtFullName"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:text="*Mobile No:"
+            android:textColor="#000"
+            android:textSize="22dp"/>
+
+
+        <EditText
+            android:id="@+id/edtMobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:ems="10"
+            android:hint=" Enter Phone no. (no country code)"
+            android:inputType="phone"
+            android:textSize="20sp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edtFullName"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:text="*Email-id:"
+            android:textColor="#000"
+            android:textSize="22dp" />
+
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:ems="10"
+            android:hint=" Enter Email-id."
+            android:inputType="textEmailAddress"
+            android:textSize="20sp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edtFullName"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:text="*Password:"
+            android:autoSizeMaxTextSize="22sp"
+            android:textColor="#000"
+            android:textSize="22dp" />
+
+
+
+        <EditText
+
+            android:id="@+id/edtPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:ems="10"
+            android:hint=" Enter Password. (atleast 8 character)"
+            android:inputType="textPassword"
+            android:textSize="20sp" />
+
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edtPass"
+            android:background="@drawable/border"
+            android:text="Register"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:textSize="20dp"
+            android:layout_marginTop="80dp"
+            android:layout_gravity="center"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/btnSignin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnRegister"
+            android:background="@drawable/border"
+            android:text="Signin"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:onClick="signin"
+            android:paddingLeft="20dp"
+            android:textSize="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:textColor="#ffffff" />
+
+    </LinearLayout>
+
+
+
+
+</ScrollView>

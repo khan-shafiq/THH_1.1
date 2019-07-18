@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1067168549958",
+    "firebase_url": "https://hijab-83b9e.firebaseio.com",
+    "project_id": "hijab-83b9e",
+    "storage_bucket": "hijab-83b9e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067168549958:android:16585626a63b211a",
+        "android_client_info": {
+          "package_name": "com.example.hijab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067168549958-ee7g3q1e5cajpphrh9sefvvv2ae9tahc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hijab",
+            "certificate_hash": "900a17f7f703c823485cd1276097df378d2e4134"
+          }
+        },
+        {
+          "client_id": "1067168549958-o15i314a84mfvam7ngcltl9sj2g06o29.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwJfj9nVMZEVTf4XbiwfSFCLtOtwejRHY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067168549958-o15i314a84mfvam7ngcltl9sj2g06o29.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
