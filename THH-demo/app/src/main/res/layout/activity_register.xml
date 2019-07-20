@@ -132,7 +132,7 @@
             android:paddingRight="20dp"
             android:paddingLeft="20dp"
             android:textSize="20dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="75dp"
             android:layout_gravity="center"
             android:textColor="#ffffff" />
 
@@ -149,7 +149,8 @@
             android:onClick="signin"
             android:paddingLeft="20dp"
             android:textSize="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:layout_gravity="center"
             android:textColor="#ffffff" />
 

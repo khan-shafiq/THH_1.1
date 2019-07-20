@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="170dp"
             android:layout_height="150dp"
             android:layout_marginLeft="20dp"
@@ -21,10 +21,10 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/red"
                 android:scaleType="centerCrop"/>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="170dp"
             android:layout_height="150dp"
             android:layout_marginLeft="20dp"
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/cream"
                 android:scaleType="centerCrop"/>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
 
     </LinearLayout>
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="170dp"
             android:layout_height="150dp"
             android:layout_marginLeft="20dp"
@@ -54,10 +54,10 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/red"
                 android:scaleType="centerCrop"/>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="170dp"
             android:layout_height="150dp"
             android:layout_marginLeft="20dp"
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/cream"
                 android:scaleType="centerCrop"/>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
 
 
@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="170dp"
             android:layout_height="150dp"
             android:layout_marginLeft="20dp"
@@ -88,10 +88,10 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/red"
                 android:scaleType="centerCrop"/>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="170dp"
             android:layout_height="150dp"
             android:layout_marginLeft="20dp"
@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/cream"
                 android:scaleType="centerCrop"/>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
 
     </LinearLayout>

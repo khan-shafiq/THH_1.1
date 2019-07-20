@@ -1,31 +1,42 @@
 package com.example.hijab;
 
-import android.graphics.Color;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
-import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private FirebaseAuth firebaseAuth;
     FragmentTransaction fragmentTransaction;
+    private ProgressDialog progressDialog;
+    private TextView txtme;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        firebaseAuth=FirebaseAuth.getInstance();
+        progressDialog=new ProgressDialog(this);
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -45,6 +56,7 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.add(R.id.frame,new home());
         fragmentTransaction.commit();
         getSupportActionBar().setTitle("Home");
+
 
 
         BottomNavigationView bottomNavigationView=(BottomNavigationView) findViewById(R.id.bottom_nav);
@@ -146,8 +158,11 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        txtme=(TextView)findViewById(R.id.txtme);
+        txtme.setText("005.kshafiq@gmail.com");
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+
 
          if (id == R.id.nav_order) {
             Toast.makeText(getApplicationContext(),"Order",Toast.LENGTH_SHORT).show();
@@ -162,6 +177,12 @@ public class MainActivity extends AppCompatActivity
 
          }
         else if (id == R.id.nav_logout) {
+   /*         progressDialog.setMessage("Logging Out");
+            progressDialog.show();
+            progressDialog.dismiss();*/
+            firebaseAuth.signOut();
+            finish();
+            startActivity(new Intent(this,activity_sigin.class));
             Toast.makeText(getApplicationContext(),"Logout",Toast.LENGTH_SHORT).show();
 
         }

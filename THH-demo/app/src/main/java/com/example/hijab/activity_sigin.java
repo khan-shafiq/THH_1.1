@@ -2,9 +2,9 @@ package com.example.hijab;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.icu.text.IDNA;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +24,7 @@ public class activity_sigin extends AppCompatActivity {
     private EditText edtPassl;
     private int counter=5;
     private TextView Info;
-
+    private TextView txtme;
     private Button btnSubmit;
     private TextView new_user1;
     private ProgressDialog progressDialog;
@@ -42,7 +42,9 @@ public class activity_sigin extends AppCompatActivity {
         btnSubmit=(Button) findViewById(R.id.btnSubmit);
         Info=(TextView)findViewById(R.id.Info);
 
+
         Info.setText("No of attemp reamining is 5");
+
 
         firebaseAuth=FirebaseAuth.getInstance();
         FirebaseUser user=firebaseAuth.getCurrentUser();
@@ -73,7 +75,7 @@ public class activity_sigin extends AppCompatActivity {
 
 
     }
-    private void validate(String username,String password){
+    private void validate(final String username, String password){
 
         progressDialog.setMessage("Logging In");
         progressDialog.show();
@@ -89,6 +91,7 @@ public class activity_sigin extends AppCompatActivity {
                     progressDialog.dismiss();
                     Toast.makeText(activity_sigin.this, "Login Successful!!!", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(activity_sigin.this,MainActivity.class));
+
                 }
                 else{
                     Toast.makeText(activity_sigin.this, "Login failed!!!", Toast.LENGTH_SHORT).show();
