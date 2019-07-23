@@ -28,6 +28,7 @@ public class activity_sigin extends AppCompatActivity {
     private Button btnSubmit;
     private TextView new_user1;
     private ProgressDialog progressDialog;
+    private TextView forgetpass;
 
     private FirebaseAuth firebaseAuth;
 
@@ -41,6 +42,7 @@ public class activity_sigin extends AppCompatActivity {
         edtPassl=(EditText) findViewById(R.id.edtPassl);
         btnSubmit=(Button) findViewById(R.id.btnSubmit);
         Info=(TextView)findViewById(R.id.Info);
+        forgetpass=(TextView)findViewById(R.id.forgetpass);
 
 
         Info.setText("No of attemp reamining is 5");
@@ -72,7 +74,12 @@ public class activity_sigin extends AppCompatActivity {
             }
         });
 
-
+        forgetpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(activity_sigin.this,forgetpassword.class));
+            }
+        });
 
     }
     private void validate(final String username, String password){
@@ -89,9 +96,10 @@ public class activity_sigin extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     progressDialog.dismiss();
-                    Toast.makeText(activity_sigin.this, "Login Successful!!!", Toast.LENGTH_SHORT).show();
+                   /* Toast.makeText(activity_sigin.this, "Login Successful!!!", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(activity_sigin.this,MainActivity.class));
-
+*/
+                   checkEmailverification();
                 }
                 else{
                     Toast.makeText(activity_sigin.this, "Login failed!!!", Toast.LENGTH_SHORT).show();
@@ -105,6 +113,20 @@ public class activity_sigin extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void checkEmailverification() {
+        FirebaseUser firebaseUser=firebaseAuth.getInstance().getCurrentUser();
+        Boolean emailflag=firebaseUser.isEmailVerified();
+        if(emailflag){
+            finish();
+            Toast.makeText(activity_sigin.this, "Login Successful!!!", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(activity_sigin.this,MainActivity.class));
+        }
+        else{
+            Toast.makeText(this, "Please verify your Email to sign in", Toast.LENGTH_SHORT).show();
+            firebaseAuth.signOut();
+        }
     }
 
    /* public void HomeScreen(View view) {

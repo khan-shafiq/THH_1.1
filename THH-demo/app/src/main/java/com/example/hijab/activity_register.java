@@ -1,9 +1,11 @@
 package com.example.hijab;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +15,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import static com.google.firebase.auth.FirebaseAuth.getInstance;
 
@@ -25,9 +30,13 @@ public class activity_register extends AppCompatActivity {
     private EditText edtPass;
 
     private Button btnRegister;
-    private Button btnSignin;
+    private ProgressDialog progressDialog;
+    //private Button btnSignin;
+    String name,Mobile,email,password;
+
 
     private FirebaseAuth firebaseAuth;
+    private FirebaseDatabase firebaseDatabase;
 
 
 
@@ -39,6 +48,12 @@ public class activity_register extends AppCompatActivity {
         setupUIViews();
 
         firebaseAuth= FirebaseAuth.getInstance();
+
+        edtFullName=(EditText)findViewById(R.id.edtFullName);
+        edtMobile=(EditText)findViewById(R.id.edtMobile);
+        edtEmail=(EditText)findViewById(R.id.edtEmail);
+        edtPass=(EditText)findViewById(R.id.edtPass);
+        progressDialog=new ProgressDialog(this);
 
         btnRegister=(Button)findViewById(R.id.btnRegister);
         btnRegister.setOnClickListener(new View.OnClickListener(){
@@ -53,9 +68,11 @@ public class activity_register extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-
-                                Toast.makeText(activity_register.this, "Registration Successful!!!", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(activity_register.this,MainActivity.class));
+                                sendEmailverification();
+                                /*sendUserData();
+                                Toast.makeText(activity_register.this, "Registration Successfull,Upload completed!", Toast.LENGTH_SHORT).show();
+                                finish();
+                                startActivity(new Intent(activity_register.this,activity_sigin.class));*/
                             }
                             else{
                                 Toast.makeText(activity_register.this, "Registration Failed!!!", Toast.LENGTH_SHORT).show();
@@ -74,13 +91,18 @@ public class activity_register extends AppCompatActivity {
     }
 
     private Boolean validate() {
+
+        progressDialog.setMessage("Registration in process");
+        progressDialog.show();
+
         Boolean result = false;
         String namepattern= "[a-zA-Z]";
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-        String name = edtFullName.getText().toString();
-        String Mobile = edtMobile.getText().toString();
-        String email = edtEmail.getText().toString();
-        String password = edtPass.getText().toString();
+
+         name = edtFullName.getText().toString();
+         Mobile = edtMobile.getText().toString();
+         email = edtEmail.getText().toString();
+         password = edtPass.getText().toString();
 
         if (name.isEmpty() || Mobile.isEmpty() || email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "None of the field must be Empty", Toast.LENGTH_SHORT).show();
@@ -105,6 +127,38 @@ public class activity_register extends AppCompatActivity {
 
 
         return result;
+    }
+
+
+
+    private void sendEmailverification() {
+        progressDialog.dismiss();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        if(firebaseUser!=null){
+            firebaseUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful()){
+                        sendUserData();
+                        Toast.makeText(activity_register.this, "Registration Successfull,Verification mail sent!", Toast.LENGTH_SHORT).show();
+                        firebaseAuth.signOut();
+                        finish();
+                        startActivity(new Intent(activity_register.this,activity_sigin.class));
+                    }
+                    else {
+                        Toast.makeText(activity_register.this, "Verification mail has'nt been send", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+    }
+
+    private void sendUserData(){
+
+        FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
+        DatabaseReference myref=firebaseDatabase.getReference("users");
+        Userprof userprofile =new Userprof(name,Mobile,email);
+        myref.setValue(userprofile);
     }
 
 

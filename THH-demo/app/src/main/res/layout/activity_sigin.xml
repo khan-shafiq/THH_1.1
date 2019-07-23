@@ -108,9 +108,19 @@
         android:id="@+id/Info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No of attempt remaining?"
+        android:text="No of attempt remaining"
         android:textSize="22dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="25dp"/>
+
+    <TextView
+        android:id="@+id/forgetpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forget password"
+        android:textSize="22dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"/>
+
 
 </LinearLayout>
